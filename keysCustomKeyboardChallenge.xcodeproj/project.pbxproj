@@ -17,6 +17,7 @@
 		BC1F3954289050BE00B81B3F /* KeysUI in Frameworks */ = {isa = PBXBuildFile; productRef = BC1F3953289050BE00B81B3F /* KeysUI */; };
 		BC1F3956289050CE00B81B3F /* KeysUI in Frameworks */ = {isa = PBXBuildFile; productRef = BC1F3955289050CE00B81B3F /* KeysUI */; };
 		BC1F39592890BE7700B81B3F /* KeyboardFeature in Frameworks */ = {isa = PBXBuildFile; productRef = BC1F39582890BE7700B81B3F /* KeyboardFeature */; };
+		BC1F395B2890D03600B81B3F /* KeyboardFeature in Frameworks */ = {isa = PBXBuildFile; productRef = BC1F395A2890D03600B81B3F /* KeyboardFeature */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC1F395B2890D03600B81B3F /* KeyboardFeature in Frameworks */,
 				BC1F3954289050BE00B81B3F /* KeysUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,6 +173,7 @@
 			name = keysCustomKeyboardChallenge;
 			packageProductDependencies = (
 				BC1F3953289050BE00B81B3F /* KeysUI */,
+				BC1F395A2890D03600B81B3F /* KeyboardFeature */,
 			);
 			productName = keysCustomKeyboardChallenge;
 			productReference = A3445BC628299E0200F25EBC /* keysCustomKeyboardChallenge.app */;
@@ -460,6 +463,7 @@
 		A3445BE4282B06EE00F25EBC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QB3R75K3D3;
@@ -485,6 +489,7 @@
 		A3445BE5282B06EE00F25EBC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QB3R75K3D3;
@@ -549,6 +554,10 @@
 			productName = KeysUI;
 		};
 		BC1F39582890BE7700B81B3F /* KeyboardFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KeyboardFeature;
+		};
+		BC1F395A2890D03600B81B3F /* KeyboardFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = KeyboardFeature;
 		};

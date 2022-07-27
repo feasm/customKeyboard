@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import KeysUI
+//import KeysUI
 
 public struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
@@ -15,9 +16,37 @@ public struct HomeView: View {
     public init() {}
     
     public var body: some View {
-        ContentListView()
-        .onAppear {
-            viewModel.getContent()
+        ZStack {
+            Color.gray
+            
+            HStack {
+                ForEach(viewModel.contentList.content) { content in
+                    PrimaryButton(text: content.displayText ?? "") {
+//                        print("button tapped!")
+                    }
+//                    Button {
+//
+//                    } label: {
+//                        Text(content.displayText ?? "")
+//                            .padding()
+//                            .overlay(
+//                                Rectangle()
+//                                    .frame(width: nil,
+//                                                  height: 2,
+//                                                  alignment: .bottom)
+//                                    .foregroundColor(Color.gray),
+//                                alignment: .bottom)
+//                            .background {
+//                                Color.white
+//                            }
+//
+//                    }
+//                    .cornerRadius(10)
+                }
+            }
+            .onAppear {
+                viewModel.getContent()
+            }
         }
     }
 }
@@ -25,6 +54,5 @@ public struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .previewLayout(.sizeThatFits)
     }
 }
