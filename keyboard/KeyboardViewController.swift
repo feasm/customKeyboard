@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import KeyboardFeature
 
 class KeyboardViewController: UIInputViewController {
     
@@ -23,7 +24,7 @@ class KeyboardViewController: UIInputViewController {
          Tip - the built in method `advanceToNextInput` exits our keyboard and takes
          the user to the next
          */
-        setup(with: RootView(viewModel: RootViewModel()))
+        setup(with: HomeView())
     }
     
     override func viewWillLayoutSubviews() {

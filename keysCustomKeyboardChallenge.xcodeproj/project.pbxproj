@@ -14,7 +14,9 @@
 		A3445BDE282B06EE00F25EBC /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3445BDD282B06EE00F25EBC /* KeyboardViewController.swift */; };
 		A3445BE2282B06EE00F25EBC /* keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3445BDB282B06EE00F25EBC /* keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3445BE8282B114400F25EBC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3445BE7282B114400F25EBC /* RootView.swift */; };
-		BC2006C6288F6F07006EEEF8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2006C5288F6F07006EEEF8 /* Constants.swift */; };
+		BC1F3954289050BE00B81B3F /* KeysUI in Frameworks */ = {isa = PBXBuildFile; productRef = BC1F3953289050BE00B81B3F /* KeysUI */; };
+		BC1F3956289050CE00B81B3F /* KeysUI in Frameworks */ = {isa = PBXBuildFile; productRef = BC1F3955289050CE00B81B3F /* KeysUI */; };
+		BC1F39592890BE7700B81B3F /* KeyboardFeature in Frameworks */ = {isa = PBXBuildFile; productRef = BC1F39582890BE7700B81B3F /* KeyboardFeature */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +53,8 @@
 		A3445BDD282B06EE00F25EBC /* KeyboardViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A3445BDF282B06EE00F25EBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3445BE7282B114400F25EBC /* RootView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; tabWidth = 4; };
-		BC2006C5288F6F07006EEEF8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BC1F395028904B1800B81B3F /* KeysUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = KeysUI; path = ../../Documents/KeysUI; sourceTree = "<group>"; };
+		BC1F39572890BBCE00B81B3F /* KeyboardFeature */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = KeyboardFeature; path = packages/KeyboardFeature; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC1F3954289050BE00B81B3F /* KeysUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC1F39592890BE7700B81B3F /* KeyboardFeature in Frameworks */,
+				BC1F3956289050CE00B81B3F /* KeysUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,9 +81,12 @@
 		A3445BBD28299E0200F25EBC = {
 			isa = PBXGroup;
 			children = (
+				BC1F395028904B1800B81B3F /* KeysUI */,
+				BC1F39572890BBCE00B81B3F /* KeyboardFeature */,
 				A3445BC828299E0200F25EBC /* keysCustomKeyboardChallenge */,
 				A3445BDC282B06EE00F25EBC /* keyboard */,
 				A3445BC728299E0200F25EBC /* Products */,
+				BC1F394A2890468300B81B3F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,12 +121,18 @@
 		A3445BDC282B06EE00F25EBC /* keyboard */ = {
 			isa = PBXGroup;
 			children = (
-				BC2006C4288F6EF6006EEEF8 /* Utils */,
 				BC2006C2288F6DDC006EEEF8 /* Features */,
 				A3445BDD282B06EE00F25EBC /* KeyboardViewController.swift */,
 				A3445BDF282B06EE00F25EBC /* Info.plist */,
 			);
 			path = keyboard;
+			sourceTree = "<group>";
+		};
+		BC1F394A2890468300B81B3F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BC2006C2288F6DDC006EEEF8 /* Features */ = {
@@ -134,14 +149,6 @@
 				A3445BE7282B114400F25EBC /* RootView.swift */,
 			);
 			path = Root;
-			sourceTree = "<group>";
-		};
-		BC2006C4288F6EF6006EEEF8 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				BC2006C5288F6F07006EEEF8 /* Constants.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +169,9 @@
 				A3445BE1282B06EE00F25EBC /* PBXTargetDependency */,
 			);
 			name = keysCustomKeyboardChallenge;
+			packageProductDependencies = (
+				BC1F3953289050BE00B81B3F /* KeysUI */,
+			);
 			productName = keysCustomKeyboardChallenge;
 			productReference = A3445BC628299E0200F25EBC /* keysCustomKeyboardChallenge.app */;
 			productType = "com.apple.product-type.application";
@@ -179,6 +189,10 @@
 			dependencies = (
 			);
 			name = keyboard;
+			packageProductDependencies = (
+				BC1F3955289050CE00B81B3F /* KeysUI */,
+				BC1F39582890BE7700B81B3F /* KeyboardFeature */,
+			);
 			productName = keyboard;
 			productReference = A3445BDB282B06EE00F25EBC /* keyboard.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -255,7 +269,6 @@
 			files = (
 				A3445BE8282B114400F25EBC /* RootView.swift in Sources */,
 				A3445BDE282B06EE00F25EBC /* KeyboardViewController.swift in Sources */,
-				BC2006C6288F6F07006EEEF8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +538,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC1F3953289050BE00B81B3F /* KeysUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KeysUI;
+		};
+		BC1F3955289050CE00B81B3F /* KeysUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KeysUI;
+		};
+		BC1F39582890BE7700B81B3F /* KeyboardFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KeyboardFeature;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A3445BBE28299E0200F25EBC /* Project object */;
 }
