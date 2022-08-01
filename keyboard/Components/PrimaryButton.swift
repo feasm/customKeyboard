@@ -16,7 +16,7 @@ struct PrimaryButton: View {
             action()
         } label: {
             Text(text)
-                .padding()
+                .padding(10)
                 .overlay(
                     Rectangle()
                         .frame(width: nil,

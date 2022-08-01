@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 public struct HomeView: View {
-    @StateObject var viewModel = HomeViewModel()
+    @ObservedObject var viewModel = HomeViewModel()
     
     public init() {}
     
@@ -37,7 +37,7 @@ public struct HomeView: View {
                         HStack {
                             ForEach(viewModel.contentList.content) { content in
                                 PrimaryButton(text: content.displayText ?? "") {
-                                    //                        print("button tapped!")
+                                    viewModel.didTapButton(id: content.id)
                                 }
                             }
                         }

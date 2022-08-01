@@ -7,8 +7,12 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 class KeyboardViewController: UIInputViewController {
+    
+    var homeView: HomeView?
+    private var cancelBag = [AnyCancellable]()
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -23,7 +27,20 @@ class KeyboardViewController: UIInputViewController {
          Tip - the built in method `advanceToNextInput` exits our keyboard and takes
          the user to the next
          */
-        setup(with: HomeView())
+        let view = HomeView()
+        setup(with: view)
+        homeView = view
+        
+        homeView?
+            .viewModel
+            .keysMessage
+            .sink(receiveValue: { [weak self] value in
+                let currentText = self?.textDocumentProxy.selectedText ?? ""
+                self?.textDocumentProxy.setMarkedText(value, selectedRange: NSRange(location: 0, length: currentText.count))
+                self?.textDocumentProxy.docume
+//                self?.textDocumentProxy.insertText(value)
+            })
+            .store(in: &cancelBag)
     }
     
     override func viewWillLayoutSubviews() {
