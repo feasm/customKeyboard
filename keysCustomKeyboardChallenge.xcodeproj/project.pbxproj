@@ -13,11 +13,18 @@
 		A3445BD128299E0500F25EBC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3445BD028299E0500F25EBC /* Preview Assets.xcassets */; };
 		A3445BDE282B06EE00F25EBC /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3445BDD282B06EE00F25EBC /* KeyboardViewController.swift */; };
 		A3445BE2282B06EE00F25EBC /* keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3445BDB282B06EE00F25EBC /* keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A3445BE8282B114400F25EBC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3445BE7282B114400F25EBC /* RootView.swift */; };
-		BC1F3954289050BE00B81B3F /* KeysUI in Frameworks */ = {isa = PBXBuildFile; productRef = BC1F3953289050BE00B81B3F /* KeysUI */; };
-		BC1F3956289050CE00B81B3F /* KeysUI in Frameworks */ = {isa = PBXBuildFile; productRef = BC1F3955289050CE00B81B3F /* KeysUI */; };
-		BC1F39592890BE7700B81B3F /* KeyboardFeature in Frameworks */ = {isa = PBXBuildFile; productRef = BC1F39582890BE7700B81B3F /* KeyboardFeature */; };
-		BC1F395B2890D03600B81B3F /* KeyboardFeature in Frameworks */ = {isa = PBXBuildFile; productRef = BC1F395A2890D03600B81B3F /* KeyboardFeature */; };
+		BC8E87762891D726006903F1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E87732891D726006903F1 /* HomeViewModel.swift */; };
+		BC8E87772891D726006903F1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E87742891D726006903F1 /* HomeView.swift */; };
+		BC8E87782891D726006903F1 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E87752891D726006903F1 /* HomeModels.swift */; };
+		BC8E877D2891D7ED006903F1 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E877A2891D73C006903F1 /* ContentService.swift */; };
+		BC8E877E2891D7F0006903F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E877C2891D73D006903F1 /* Constants.swift */; };
+		BC8E877F2891D834006903F1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E87742891D726006903F1 /* HomeView.swift */; };
+		BC8E87802891D846006903F1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E87732891D726006903F1 /* HomeViewModel.swift */; };
+		BC8E87812891D857006903F1 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E87752891D726006903F1 /* HomeModels.swift */; };
+		BC8E87822891D85A006903F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E877C2891D73D006903F1 /* Constants.swift */; };
+		BC8E87832891D85D006903F1 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E877A2891D73C006903F1 /* ContentService.swift */; };
+		BC8E87872891DAA7006903F1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E87862891DAA7006903F1 /* PrimaryButton.swift */; };
+		BC8E87882891DAEC006903F1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E87862891DAA7006903F1 /* PrimaryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,9 +60,12 @@
 		A3445BDB282B06EE00F25EBC /* keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = keyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3445BDD282B06EE00F25EBC /* KeyboardViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A3445BDF282B06EE00F25EBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A3445BE7282B114400F25EBC /* RootView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; tabWidth = 4; };
-		BC1F395028904B1800B81B3F /* KeysUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = KeysUI; path = ../../Documents/KeysUI; sourceTree = "<group>"; };
-		BC1F39572890BBCE00B81B3F /* KeyboardFeature */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = KeyboardFeature; path = packages/KeyboardFeature; sourceTree = "<group>"; };
+		BC8E87732891D726006903F1 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		BC8E87742891D726006903F1 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BC8E87752891D726006903F1 /* HomeModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
+		BC8E877A2891D73C006903F1 /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentService.swift; sourceTree = "<group>"; };
+		BC8E877C2891D73D006903F1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BC8E87862891DAA7006903F1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +73,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC1F395B2890D03600B81B3F /* KeyboardFeature in Frameworks */,
-				BC1F3954289050BE00B81B3F /* KeysUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,8 +80,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC1F39592890BE7700B81B3F /* KeyboardFeature in Frameworks */,
-				BC1F3956289050CE00B81B3F /* KeysUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,12 +89,9 @@
 		A3445BBD28299E0200F25EBC = {
 			isa = PBXGroup;
 			children = (
-				BC1F395028904B1800B81B3F /* KeysUI */,
-				BC1F39572890BBCE00B81B3F /* KeyboardFeature */,
 				A3445BC828299E0200F25EBC /* keysCustomKeyboardChallenge */,
 				A3445BDC282B06EE00F25EBC /* keyboard */,
 				A3445BC728299E0200F25EBC /* Products */,
-				BC1F394A2890468300B81B3F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +126,9 @@
 		A3445BDC282B06EE00F25EBC /* keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				BC8E87852891D890006903F1 /* Components */,
+				BC8E87792891D73C006903F1 /* Service */,
+				BC8E877B2891D73D006903F1 /* Utils */,
 				BC2006C2288F6DDC006EEEF8 /* Features */,
 				A3445BDD282B06EE00F25EBC /* KeyboardViewController.swift */,
 				A3445BDF282B06EE00F25EBC /* Info.plist */,
@@ -130,27 +136,55 @@
 			path = keyboard;
 			sourceTree = "<group>";
 		};
-		BC1F394A2890468300B81B3F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		BC2006C2288F6DDC006EEEF8 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				BC2006C3288F6DE3006EEEF8 /* Root */,
+				BC8E87712891D726006903F1 /* Screens */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		BC2006C3288F6DE3006EEEF8 /* Root */ = {
+		BC8E87712891D726006903F1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				A3445BE7282B114400F25EBC /* RootView.swift */,
+				BC8E87722891D726006903F1 /* Home */,
 			);
-			path = Root;
+			name = Screens;
+			path = packages/KeyboardFeature/Sources/KeyboardFeature/Screens;
+			sourceTree = SOURCE_ROOT;
+		};
+		BC8E87722891D726006903F1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BC8E87732891D726006903F1 /* HomeViewModel.swift */,
+				BC8E87742891D726006903F1 /* HomeView.swift */,
+				BC8E87752891D726006903F1 /* HomeModels.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BC8E87792891D73C006903F1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BC8E877A2891D73C006903F1 /* ContentService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BC8E877B2891D73D006903F1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BC8E877C2891D73D006903F1 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BC8E87852891D890006903F1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BC8E87862891DAA7006903F1 /* PrimaryButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,8 +206,6 @@
 			);
 			name = keysCustomKeyboardChallenge;
 			packageProductDependencies = (
-				BC1F3953289050BE00B81B3F /* KeysUI */,
-				BC1F395A2890D03600B81B3F /* KeyboardFeature */,
 			);
 			productName = keysCustomKeyboardChallenge;
 			productReference = A3445BC628299E0200F25EBC /* keysCustomKeyboardChallenge.app */;
@@ -193,8 +225,6 @@
 			);
 			name = keyboard;
 			packageProductDependencies = (
-				BC1F3955289050CE00B81B3F /* KeysUI */,
-				BC1F39582890BE7700B81B3F /* KeyboardFeature */,
 			);
 			productName = keyboard;
 			productReference = A3445BDB282B06EE00F25EBC /* keyboard.appex */;
@@ -261,8 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC8E877F2891D834006903F1 /* HomeView.swift in Sources */,
+				BC8E87812891D857006903F1 /* HomeModels.swift in Sources */,
+				BC8E87832891D85D006903F1 /* ContentService.swift in Sources */,
 				A3445BCC28299E0200F25EBC /* ContentView.swift in Sources */,
 				A3445BCA28299E0200F25EBC /* keysCustomKeyboardChallengeApp.swift in Sources */,
+				BC8E87802891D846006903F1 /* HomeViewModel.swift in Sources */,
+				BC8E87882891DAEC006903F1 /* PrimaryButton.swift in Sources */,
+				BC8E87822891D85A006903F1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,8 +306,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3445BE8282B114400F25EBC /* RootView.swift in Sources */,
+				BC8E87782891D726006903F1 /* HomeModels.swift in Sources */,
+				BC8E87772891D726006903F1 /* HomeView.swift in Sources */,
 				A3445BDE282B06EE00F25EBC /* KeyboardViewController.swift in Sources */,
+				BC8E87762891D726006903F1 /* HomeViewModel.swift in Sources */,
+				BC8E87872891DAA7006903F1 /* PrimaryButton.swift in Sources */,
+				BC8E877D2891D7ED006903F1 /* ContentService.swift in Sources */,
+				BC8E877E2891D7F0006903F1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,25 +584,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		BC1F3953289050BE00B81B3F /* KeysUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = KeysUI;
-		};
-		BC1F3955289050CE00B81B3F /* KeysUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = KeysUI;
-		};
-		BC1F39582890BE7700B81B3F /* KeyboardFeature */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = KeyboardFeature;
-		};
-		BC1F395A2890D03600B81B3F /* KeyboardFeature */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = KeyboardFeature;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A3445BBE28299E0200F25EBC /* Project object */;
 }

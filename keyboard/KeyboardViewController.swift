@@ -7,7 +7,6 @@
 
 import UIKit
 import SwiftUI
-import KeyboardFeature
 
 class KeyboardViewController: UIInputViewController {
     

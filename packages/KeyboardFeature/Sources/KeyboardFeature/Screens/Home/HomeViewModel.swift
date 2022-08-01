@@ -12,6 +12,8 @@ final class HomeViewModel: ObservableObject {
     
     private var service: ContentService
     
+    @Published var isLoading = false
+    @Published var hasErrors = false
     @Published var contentList = ContentListModel()
     
     private var cancelBag = [AnyCancellable]()
@@ -21,14 +23,22 @@ final class HomeViewModel: ObservableObject {
     }
     
     func getContent() {
+        isLoading = true
+        
         service
             .getContent()
-            .sink { result in
-                if case .failure(let error) = result {
-                    print(error)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                self.isLoading = false
+                
+                switch result {
+                case .finished:
+                    self.hasErrors = false
+                case .failure:
+                    self.hasErrors = true
                 }
-            } receiveValue: { contentList in
-                self.contentList = contentList
+            } receiveValue: { [weak self] contentList in
+                self?.contentList = contentList
             }
             .store(in: &cancelBag)
     }
