@@ -13,6 +13,8 @@
 		A3445BD128299E0500F25EBC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3445BD028299E0500F25EBC /* Preview Assets.xcassets */; };
 		A3445BDE282B06EE00F25EBC /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3445BDD282B06EE00F25EBC /* KeyboardViewController.swift */; };
 		A3445BE2282B06EE00F25EBC /* keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3445BDB282B06EE00F25EBC /* keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AFC0436628998BAF00496A47 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0436528998BAF00496A47 /* LoadingView.swift */; };
+		AFC0436728998C5700496A47 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0436528998BAF00496A47 /* LoadingView.swift */; };
 		BC8E87762891D726006903F1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E87732891D726006903F1 /* HomeViewModel.swift */; };
 		BC8E87772891D726006903F1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E87742891D726006903F1 /* HomeView.swift */; };
 		BC8E87782891D726006903F1 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E87752891D726006903F1 /* HomeModels.swift */; };
@@ -60,6 +62,7 @@
 		A3445BDB282B06EE00F25EBC /* keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = keyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3445BDD282B06EE00F25EBC /* KeyboardViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A3445BDF282B06EE00F25EBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFC0436528998BAF00496A47 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		BC8E87732891D726006903F1 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC8E87742891D726006903F1 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BC8E87752891D726006903F1 /* HomeModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
@@ -183,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				BC8E87862891DAA7006903F1 /* PrimaryButton.swift */,
+				AFC0436528998BAF00496A47 /* LoadingView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -299,6 +303,7 @@
 				BC8E87802891D846006903F1 /* HomeViewModel.swift in Sources */,
 				BC8E87882891DAEC006903F1 /* PrimaryButton.swift in Sources */,
 				BC8E87822891D85A006903F1 /* Constants.swift in Sources */,
+				AFC0436728998C5700496A47 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +316,7 @@
 				A3445BDE282B06EE00F25EBC /* KeyboardViewController.swift in Sources */,
 				BC8E87762891D726006903F1 /* HomeViewModel.swift in Sources */,
 				BC8E87872891DAA7006903F1 /* PrimaryButton.swift in Sources */,
+				AFC0436628998BAF00496A47 /* LoadingView.swift in Sources */,
 				BC8E877D2891D7ED006903F1 /* ContentService.swift in Sources */,
 				BC8E877E2891D7F0006903F1 /* Constants.swift in Sources */,
 			);

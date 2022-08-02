@@ -9,12 +9,11 @@ import SwiftUI
 
 struct PrimaryButton: View {
     var text: String
-    var action: () -> Void
+    var tapGesture: () -> Void
+    var longPressGesture: (() -> Void)?
     
     var body: some View {
-        Button {
-            action()
-        } label: {
+        Button(action: {}) {
             Text(text)
                 .padding(10)
                 .overlay(
@@ -27,8 +26,20 @@ struct PrimaryButton: View {
                 .background {
                     Color.white
                 }
-
+                .foregroundColor(.black)
         }
+        .simultaneousGesture(
+            LongPressGesture(minimumDuration: 1)
+                .onEnded({ _ in
+                    longPressGesture?()
+                })
+        )
+        .highPriorityGesture(
+            TapGesture()
+                .onEnded({ _ in
+                    tapGesture()
+                })
+        )
         .cornerRadius(10)
     }
 }

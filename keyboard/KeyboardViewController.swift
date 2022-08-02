@@ -31,14 +31,24 @@ class KeyboardViewController: UIInputViewController {
         setup(with: view)
         homeView = view
         
+        setupBindings()
+    }
+    
+    private func setupBindings() {
         homeView?
             .viewModel
             .keysMessage
             .sink(receiveValue: { [weak self] value in
                 let currentText = self?.textDocumentProxy.selectedText ?? ""
                 self?.textDocumentProxy.setMarkedText(value, selectedRange: NSRange(location: 0, length: currentText.count))
-                self?.textDocumentProxy.docume
-//                self?.textDocumentProxy.insertText(value)
+            })
+            .store(in: &cancelBag)
+        
+        homeView?
+            .viewModel
+            .onExitTapped
+            .sink(receiveValue: { [weak self] _ in
+                self?.advanceToNextInputMode()
             })
             .store(in: &cancelBag)
     }

@@ -18,47 +18,67 @@ public struct HomeView: View {
             Color.gray
             
             if viewModel.isLoading {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
-                    .scaleEffect(2)
-                    .animation(.easeIn)
+                LoadingView()
             } else {
                 if viewModel.hasErrors {
-                    VStack {
-                        Text("Something wrong happened, try again later :(")
-                        PrimaryButton(text: "Reload") {
-                            viewModel.getContent()
-                        }
-                    }
+                    emptyScreen
                 } else {
-                    VStack {
-                        Spacer()
-                        
-                        HStack {
-                            ForEach(viewModel.contentList.content) { content in
-                                PrimaryButton(text: content.displayText ?? "") {
-                                    viewModel.didTapButton(id: content.id)
-                                }
-                            }
-                        }
-                        
-                        Spacer()
-                        
-                        HStack {
-                            PrimaryButton(text: "EXIT") {
-                                viewModel.getContent()
-                            }
-                            .padding([.leading], 20)
-                            
-                            Spacer()
-                        }
-                    }
+                    contentListView
                 }
             }
         }
         .frame(height: 260)
         .onAppear {
             viewModel.getContent()
+        }
+    }
+    
+    private var emptyScreen: some View {
+        VStack {
+            Text("Something wrong happened, try again later :(")
+            PrimaryButton(text: "Reload") {
+                viewModel.getContent()
+            }
+        }
+    }
+    
+    private var contentListView: some View {
+        VStack {
+            Spacer()
+            
+            HStack {
+                ForEach(viewModel.contentViewModels) { contentViewModel in
+                    PrimaryButton(text: contentViewModel.displayText) {
+                        viewModel.didTapButton(id: contentViewModel.id)
+                    } longPressGesture: {
+                        viewModel.showPopup(id: contentViewModel.id)
+                    }
+
+                }
+            }
+            
+            Spacer()
+            
+            HStack {
+                PrimaryButton(text: "EXIT") {
+                    viewModel.didTapExitButton()
+                }
+                .padding([.leading], 20)
+                
+                Spacer()
+            }
+            .padding([.bottom], 10)
+            .popover(isPresented: $viewModel.isShowingPopup) {
+                List {
+                    ForEach(0..<viewModel.messageList.count) { index in
+                        Button {
+                            viewModel.didTapMessageOnList(index: index)
+                        } label: {
+                            Text(viewModel.messageList[index])
+                        }
+                    }
+                }
+            }
         }
     }
 }

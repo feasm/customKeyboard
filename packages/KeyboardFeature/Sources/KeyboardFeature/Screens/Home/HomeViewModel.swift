@@ -8,16 +8,37 @@
 import Foundation
 import Combine
 
+final class ContentViewModel: Identifiable {
+    let id: String
+    let displayText: String
+    
+    init(contentModel: ContentModel) {
+        self.id = contentModel.id ?? ""
+        self.displayText = contentModel.displayText?.uppercased() ?? ""
+    }
+    
+}
+
 final class HomeViewModel: ObservableObject {
     
     private var service: ContentService
     
     @Published var isLoading = false
+    @Published var isShowingPopup = false
     @Published var hasErrors = false
-    @Published var contentList = ContentListModel()
+    @Published var contentViewModels = [ContentViewModel]()
     
     var keysMessage = CurrentValueSubject<String, Never>("Initial Message")
+    var onExitTapped = PassthroughSubject<Void, Never>()
     
+    var messageList: [String] {
+        contentList
+            .content
+            .first(where: { $0.id == selectedId })?
+            .content ?? []
+    }
+    
+    private var contentList = ContentListModel()
     private var selectedId: String? = nil
     private var selectedIndex = 0
     
@@ -43,6 +64,7 @@ final class HomeViewModel: ObservableObject {
                     self.hasErrors = true
                 }
             } receiveValue: { [weak self] contentList in
+                self?.contentViewModels = contentList.content.map({ ContentViewModel(contentModel: $0) })
                 self?.contentList = contentList
             }
             .store(in: &cancelBag)
@@ -55,11 +77,27 @@ final class HomeViewModel: ObservableObject {
                 selectedIndex = 0
             }
             
-            let message = content.content?[selectedIndex] ?? ""
-            keysMessage.send(message)
+            keysMessage.send(content.getMessage(index: selectedIndex))
             
             selectedIndex = selectedIndex + 1 == content.content?.count ? 0 : selectedIndex + 1
         }
+    }
+    
+    func didTapMessageOnList(index: Int) {
+        selectedIndex = index
+        if let content = contentList.getBy(id: selectedId) {
+            keysMessage.send(content.getMessage(index: selectedIndex))
+            isShowingPopup = false
+        }
+    }
+    
+    func didTapExitButton() {
+        onExitTapped.send()
+    }
+    
+    func showPopup(id: String) {
+        selectedId = id
+        isShowingPopup = true
     }
     
 }
