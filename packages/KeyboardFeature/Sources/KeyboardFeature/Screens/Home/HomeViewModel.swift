@@ -83,6 +83,7 @@ final class HomeViewModel: ObservableObject {
     
     func clearLocalStorage() {
         localStorage.clear()
+        getContent()
     }
     
     func didTapButton(id: String?) {

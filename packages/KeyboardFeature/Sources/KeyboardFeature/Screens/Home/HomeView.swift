@@ -8,8 +8,17 @@
 import SwiftUI
 import Combine
 
+struct ScaleEffect: GeometryEffect {
+    func effectValue(size: CGSize) -> ProjectionTransform {
+        return ProjectionTransform(CGAffineTransform(scaleX: 2, y: 2))
+    }
+}
+
 public struct HomeView: View {
     @ObservedObject var viewModel = HomeViewModel()
+    @State private var shouldAnimateLoadingView = false
+    @State private var shouldAnimateEmptyView = false
+    @State private var shouldAnimateContentView = false
     
     public init() {}
     
@@ -19,11 +28,45 @@ public struct HomeView: View {
             
             if viewModel.isLoading {
                 LoadingView()
+                    .scaleEffect(shouldAnimateLoadingView ? 2 : 0.5)
+                    .offset(x: 0, y: shouldAnimateLoadingView ? 0 : 20)
+                    .onAppear {
+                        withAnimation {
+                            shouldAnimateLoadingView.toggle()
+                        }
+                    }
+                    .onDisappear {
+                        withAnimation {
+                            shouldAnimateLoadingView.toggle()
+                        }
+                    }
             } else {
                 if viewModel.hasErrors {
                     emptyScreen
+                        .scaleEffect(shouldAnimateEmptyView ? 1 : 0)
+                        .opacity(shouldAnimateEmptyView ? 1 : 0)
+                        .onAppear {
+                            withAnimation {
+                                shouldAnimateEmptyView.toggle()
+                            }
+                        }
+                        .onDisappear {
+                            shouldAnimateEmptyView.toggle()
+                        }
                 } else {
                     contentListView
+                        .opacity(shouldAnimateContentView ? 1 : 0)
+                        .offset(x: shouldAnimateContentView ? 0 : 200, y: 0)
+                        .onAppear {
+                            withAnimation {
+                                shouldAnimateContentView.toggle()
+                            }
+                        }
+                        .onDisappear {
+                            withAnimation {
+                                shouldAnimateContentView.toggle()
+                            }
+                        }
                 }
             }
         }
@@ -62,7 +105,6 @@ public struct HomeView: View {
                     } longPressGesture: {
                         viewModel.showPopup(id: contentViewModel.id)
                     }
-
                 }
             }
             

@@ -42,9 +42,7 @@ class KeyboardViewController: UIInputViewController {
                 guard let self = self else { return }
                 
                 if self.textDocumentProxy.hasText {
-                    self.textDocumentProxy
-                        .fullText
-                        .forEach({ _ in self.textDocumentProxy.deleteBackward() })
+                    self.textDocumentProxy.deleteFullText()
                 }
                 
                 self.textDocumentProxy.insertText(value)
@@ -104,5 +102,9 @@ fileprivate extension UITextDocumentProxy {
         let selectedText = selectedText ?? ""
         
         return "\(precedingText)\(selectedText)\(followingText)"
+    }
+    
+    func deleteFullText() {
+        fullText.forEach({ _ in deleteBackward() })
     }
 }
