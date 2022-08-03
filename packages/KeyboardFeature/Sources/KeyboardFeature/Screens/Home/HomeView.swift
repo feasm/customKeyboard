@@ -24,7 +24,7 @@ public struct HomeView: View {
     
     public var body: some View {
         ZStack {
-            Color.gray
+            Color("PrimaryColor")
             
             if viewModel.isLoading {
                 LoadingView()
@@ -126,8 +126,13 @@ public struct HomeView: View {
                             viewModel.didTapMessageOnList(index: index)
                         } label: {
                             Text(viewModel.messageList[index])
-                        }
+                                .foregroundColor(Color("FontColor"))
+                        }.listRowBackground(Color("SecondaryColor"))
                     }
+                    .listRowBackground(Color("SecondaryColor"))
+                }
+                .onAppear {
+                    UITableView.appearance().backgroundColor = UIColor(named: "PrimaryColor")
                 }
             }
         }
@@ -137,6 +142,7 @@ public struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 300, height: 260))
     }
 }

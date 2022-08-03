@@ -24,9 +24,9 @@ struct PrimaryButton: View {
                         .foregroundColor(Color.gray),
                     alignment: .bottom)
                 .background {
-                    Color.white
+                    Color("SecondaryColor")
                 }
-                .foregroundColor(.black)
+                .foregroundColor(Color("FontColor"))
         }
         .simultaneousGesture(
             LongPressGesture(minimumDuration: 1)

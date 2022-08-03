@@ -13,6 +13,7 @@
 		A3445BD128299E0500F25EBC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3445BD028299E0500F25EBC /* Preview Assets.xcassets */; };
 		A3445BDE282B06EE00F25EBC /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3445BDD282B06EE00F25EBC /* KeyboardViewController.swift */; };
 		A3445BE2282B06EE00F25EBC /* keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3445BDB282B06EE00F25EBC /* keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AF583FB3289A257E002979A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3445BCD28299E0500F25EBC /* Assets.xcassets */; };
 		AFC0436628998BAF00496A47 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0436528998BAF00496A47 /* LoadingView.swift */; };
 		AFC0436728998C5700496A47 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0436528998BAF00496A47 /* LoadingView.swift */; };
 		AFC0436A2899BC2900496A47 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AFC043692899BC2900496A47 /* Realm */; };
@@ -320,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF583FB3289A257E002979A3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
