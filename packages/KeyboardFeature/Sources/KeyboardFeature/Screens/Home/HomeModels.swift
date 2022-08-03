@@ -6,21 +6,22 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct ContentListModel: Decodable {
-    var content: [ContentModel] = []
+class ContentListModel: Object, Decodable {
+    dynamic var content = List<ContentModel>()
     
     func getBy(id: String?) -> ContentModel? {
         return content.first(where: { $0.id == id })
     }
 }
 
-struct ContentModel: Decodable, Identifiable {
-    let id: String?
-    let displayText: String?
-    let content: [String]?
+class ContentModel: Object, Decodable, Identifiable {
+    @objc dynamic var id: String? = ""
+    @objc dynamic var displayText: String = ""
+    dynamic var content = List<String>()
     
     func getMessage(index: Int) -> String {
-        return content?[index] ?? ""
+        return content[index]
     }
 }

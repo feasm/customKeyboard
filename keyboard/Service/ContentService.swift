@@ -13,11 +13,9 @@ enum NetworkError: Error {
     case internalServerError(Error)
 }
 
-final public class ContentService {
+final class ContentService {
     
-    public init() {
-        
-    }
+    init() {}
     
     func getContent() -> AnyPublisher<ContentListModel, NetworkError> {
         let subject = PassthroughSubject<ContentListModel, NetworkError>()

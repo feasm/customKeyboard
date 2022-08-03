@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import RealmSwift
 
 final class ContentViewModel: Identifiable {
     let id: String
@@ -14,14 +15,15 @@ final class ContentViewModel: Identifiable {
     
     init(contentModel: ContentModel) {
         self.id = contentModel.id ?? ""
-        self.displayText = contentModel.displayText?.uppercased() ?? ""
+        self.displayText = contentModel.displayText.uppercased()
     }
     
 }
 
 final class HomeViewModel: ObservableObject {
     
-    private var service: ContentService
+    private let service: ContentService
+    private let localStorage: LocalStorage
     
     @Published var isLoading = false
     @Published var isShowingPopup = false
@@ -31,11 +33,11 @@ final class HomeViewModel: ObservableObject {
     var keysMessage = CurrentValueSubject<String, Never>("Initial Message")
     var onExitTapped = PassthroughSubject<Void, Never>()
     
-    var messageList: [String] {
+    var messageList: List<String> {
         contentList
             .content
             .first(where: { $0.id == selectedId })?
-            .content ?? []
+            .content ?? List<String>()
     }
     
     private var contentList = ContentListModel()
@@ -44,30 +46,43 @@ final class HomeViewModel: ObservableObject {
     
     private var cancelBag = [AnyCancellable]()
     
-    init(service: ContentService = ContentService()) {
+    init(service: ContentService = ContentService(), localStorage: LocalStorage = LocalStorage()) {
         self.service = service
+        self.localStorage = localStorage
     }
     
     func getContent() {
         isLoading = true
         
-        service
-            .getContent()
-            .sink { [weak self] result in
-                guard let self = self else { return }
-                self.isLoading = false
-                
-                switch result {
-                case .finished:
-                    self.hasErrors = false
-                case .failure:
-                    self.hasErrors = true
+        if let contentList: ContentListModel = localStorage.get() {
+            self.contentViewModels = contentList.content.map({ ContentViewModel(contentModel: $0) })
+            self.contentList = contentList
+            self.isLoading = false
+        } else {
+            service
+                .getContent()
+                .sink { [weak self] result in
+                    guard let self = self else { return }
+                    self.isLoading = false
+                    
+                    switch result {
+                    case .finished:
+                        self.hasErrors = false
+                    case .failure:
+                        self.hasErrors = true
+                    }
+                } receiveValue: { [weak self] contentList in
+                    guard let self = self else { return }
+                    self.contentViewModels = contentList.content.map({ ContentViewModel(contentModel: $0) })
+                    self.contentList = contentList
+                    self.localStorage.save(contentList)
                 }
-            } receiveValue: { [weak self] contentList in
-                self?.contentViewModels = contentList.content.map({ ContentViewModel(contentModel: $0) })
-                self?.contentList = contentList
-            }
-            .store(in: &cancelBag)
+                .store(in: &cancelBag)
+        }
+    }
+    
+    func clearLocalStorage() {
+        localStorage.clear()
     }
     
     func didTapButton(id: String?) {
@@ -79,7 +94,7 @@ final class HomeViewModel: ObservableObject {
             
             keysMessage.send(content.getMessage(index: selectedIndex))
             
-            selectedIndex = selectedIndex + 1 == content.content?.count ? 0 : selectedIndex + 1
+            selectedIndex = selectedIndex + 1 == content.content.count ? 0 : selectedIndex + 1
         }
     }
     

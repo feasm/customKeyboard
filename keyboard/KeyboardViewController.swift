@@ -39,8 +39,15 @@ class KeyboardViewController: UIInputViewController {
             .viewModel
             .keysMessage
             .sink(receiveValue: { [weak self] value in
-                let currentText = self?.textDocumentProxy.selectedText ?? ""
-                self?.textDocumentProxy.setMarkedText(value, selectedRange: NSRange(location: 0, length: currentText.count))
+                guard let self = self else { return }
+                
+                if self.textDocumentProxy.hasText {
+                    self.textDocumentProxy
+                        .fullText
+                        .forEach({ _ in self.textDocumentProxy.deleteBackward() })
+                }
+                
+                self.textDocumentProxy.insertText(value)
             })
             .store(in: &cancelBag)
         
@@ -87,5 +94,15 @@ public class KeyboardHostingController<Content: View>: UIHostingController<Conte
         view.trailingAnchor.constraint(equalTo: controller.view.trailingAnchor).isActive = true
         view.topAnchor.constraint(equalTo: controller.view.topAnchor).isActive = true
         view.bottomAnchor.constraint(equalTo: controller.view.bottomAnchor).isActive = true
+    }
+}
+
+fileprivate extension UITextDocumentProxy {
+    var fullText: String {
+        let precedingText = documentContextBeforeInput ?? ""
+        let followingText = documentContextAfterInput ?? ""
+        let selectedText = selectedText ?? ""
+        
+        return "\(precedingText)\(selectedText)\(followingText)"
     }
 }

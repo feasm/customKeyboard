@@ -44,6 +44,15 @@ public struct HomeView: View {
     
     private var contentListView: some View {
         VStack {
+            HStack {
+                PrimaryButton(text: "CLEAR CACHE") {
+                    viewModel.clearLocalStorage()
+                }
+                .padding([.leading], 20)
+                
+                Spacer()
+            }.padding([.top], 10)
+            
             Spacer()
             
             HStack {

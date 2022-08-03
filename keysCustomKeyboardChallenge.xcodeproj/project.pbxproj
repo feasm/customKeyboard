@@ -15,6 +15,12 @@
 		A3445BE2282B06EE00F25EBC /* keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3445BDB282B06EE00F25EBC /* keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AFC0436628998BAF00496A47 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0436528998BAF00496A47 /* LoadingView.swift */; };
 		AFC0436728998C5700496A47 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0436528998BAF00496A47 /* LoadingView.swift */; };
+		AFC0436A2899BC2900496A47 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AFC043692899BC2900496A47 /* Realm */; };
+		AFC0436C2899BC2900496A47 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AFC0436B2899BC2900496A47 /* RealmSwift */; };
+		AFC0436F2899BCB300496A47 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0436E2899BCB300496A47 /* LocalStorage.swift */; };
+		AFC043702899BCB300496A47 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0436E2899BCB300496A47 /* LocalStorage.swift */; };
+		AFC043732899BDBA00496A47 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AFC043722899BDBA00496A47 /* Realm */; };
+		AFC043752899BDBA00496A47 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AFC043742899BDBA00496A47 /* RealmSwift */; };
 		BC8E87762891D726006903F1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E87732891D726006903F1 /* HomeViewModel.swift */; };
 		BC8E87772891D726006903F1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E87742891D726006903F1 /* HomeView.swift */; };
 		BC8E87782891D726006903F1 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E87752891D726006903F1 /* HomeModels.swift */; };
@@ -63,6 +69,7 @@
 		A3445BDD282B06EE00F25EBC /* KeyboardViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A3445BDF282B06EE00F25EBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFC0436528998BAF00496A47 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		AFC0436E2899BCB300496A47 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		BC8E87732891D726006903F1 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BC8E87742891D726006903F1 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BC8E87752891D726006903F1 /* HomeModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
@@ -76,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFC0436C2899BC2900496A47 /* RealmSwift in Frameworks */,
+				AFC0436A2899BC2900496A47 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFC043752899BDBA00496A47 /* RealmSwift in Frameworks */,
+				AFC043732899BDBA00496A47 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +106,7 @@
 				A3445BC828299E0200F25EBC /* keysCustomKeyboardChallenge */,
 				A3445BDC282B06EE00F25EBC /* keyboard */,
 				A3445BC728299E0200F25EBC /* Products */,
+				AFC043712899BDBA00496A47 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +141,7 @@
 		A3445BDC282B06EE00F25EBC /* keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				AFC0436D2899BC3A00496A47 /* LocalStorage */,
 				BC8E87852891D890006903F1 /* Components */,
 				BC8E87792891D73C006903F1 /* Service */,
 				BC8E877B2891D73D006903F1 /* Utils */,
@@ -137,6 +150,21 @@
 				A3445BDF282B06EE00F25EBC /* Info.plist */,
 			);
 			path = keyboard;
+			sourceTree = "<group>";
+		};
+		AFC0436D2899BC3A00496A47 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				AFC0436E2899BCB300496A47 /* LocalStorage.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		AFC043712899BDBA00496A47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BC2006C2288F6DDC006EEEF8 /* Features */ = {
@@ -210,6 +238,8 @@
 			);
 			name = keysCustomKeyboardChallenge;
 			packageProductDependencies = (
+				AFC043692899BC2900496A47 /* Realm */,
+				AFC0436B2899BC2900496A47 /* RealmSwift */,
 			);
 			productName = keysCustomKeyboardChallenge;
 			productReference = A3445BC628299E0200F25EBC /* keysCustomKeyboardChallenge.app */;
@@ -229,6 +259,8 @@
 			);
 			name = keyboard;
 			packageProductDependencies = (
+				AFC043722899BDBA00496A47 /* Realm */,
+				AFC043742899BDBA00496A47 /* RealmSwift */,
 			);
 			productName = keyboard;
 			productReference = A3445BDB282B06EE00F25EBC /* keyboard.appex */;
@@ -261,6 +293,9 @@
 				Base,
 			);
 			mainGroup = A3445BBD28299E0200F25EBC;
+			packageReferences = (
+				AFC043682899BC2900496A47 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = A3445BC728299E0200F25EBC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -296,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC8E877F2891D834006903F1 /* HomeView.swift in Sources */,
+				AFC0436F2899BCB300496A47 /* LocalStorage.swift in Sources */,
 				BC8E87812891D857006903F1 /* HomeModels.swift in Sources */,
 				BC8E87832891D85D006903F1 /* ContentService.swift in Sources */,
 				A3445BCC28299E0200F25EBC /* ContentView.swift in Sources */,
@@ -311,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFC043702899BCB300496A47 /* LocalStorage.swift in Sources */,
 				BC8E87782891D726006903F1 /* HomeModels.swift in Sources */,
 				BC8E87772891D726006903F1 /* HomeView.swift in Sources */,
 				A3445BDE282B06EE00F25EBC /* KeyboardViewController.swift in Sources */,
@@ -590,6 +627,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AFC043682899BC2900496A47 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.28.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AFC043692899BC2900496A47 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFC043682899BC2900496A47 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		AFC0436B2899BC2900496A47 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFC043682899BC2900496A47 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		AFC043722899BDBA00496A47 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFC043682899BC2900496A47 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		AFC043742899BDBA00496A47 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFC043682899BC2900496A47 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A3445BBE28299E0200F25EBC /* Project object */;
 }
